@@ -160,6 +160,34 @@
         <source src="hymecymeyseh-sound.mp4" type="audio/wav">
         Your browser does not support the audio element.
     </audio>
+
+    <script>
+        const video = document.getElementById('background-video');
+    
+        video.addEventListener('play', () => {
+            console.log('Video is playing');
+        });
+    
+        video.addEventListener('pause', () => {
+            console.log('Video is paused');
+        });
+    
+        video.addEventListener('ended', () => {
+            console.log('Video has ended');
+        });
+    
+        // Optionally, to check if the video is playing at any given moment
+        function isVideoPlaying(video) {
+            return !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
+        }
+    
+        // Example usage
+        if (isVideoPlaying(video)) {
+            console.log('Video is currently playing');
+        } else {
+            console.log('Video is not currently playing');
+        }
+    </script>
 </body>
 
 
